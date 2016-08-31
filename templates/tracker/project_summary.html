@@ -22,9 +22,9 @@
                   <th>Ongoing Release Id</th>
                 </tr>
               </thead>
+              <tbody>
    {% for stream in streams %}
 	
-              <tbody>
                 <tr>
                   <td>{{ forloop.counter }}</td>
                   <td>{{ stream.Project_Stream }}</td>
@@ -32,9 +32,9 @@
                   <td>{{ stream.Project_Release_Label_Date }}</td>
                   <td>{{ stream.Project_Release_Label_inprogress }}</td>
                 </tr>
+  {% endfor %}
               </tbody>
         </table>
-  {% endfor %}
 {% endif %}
 	
 {% endblock project_release_detail %}
