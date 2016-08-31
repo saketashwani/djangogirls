@@ -1,0 +1,15 @@
+{% if Projects %}
+	<ul class="nav nav-sidebar">
+		{% for project in Projects %}
+			{% if project == act_project %}
+				<li class="active"><a href="{% url 'tracker:project_summary' project.Project_Short_Name %}">a{{ project.Project_Name }}</a></li>
+			{% else %}
+				<li><a href="{% url 'tracker:project_summary' project.Project_Short_Name %}">{{ project.Project_Name }}</a></li>
+			{% endif %}
+		{% endfor %}
+	</ul>
+{% else %}	
+	<ul class="nav nav-sidebar">
+		<li><strong>There is no project present.</strong></li>
+	</ul>
+{% endif %}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+{% extends 'tracker/base.html' %}
+
+{% load staticfiles %}
+
+{% block title_block %}{{ project.Project_Name }} Detail{% endblock title_block %}
+
+{% block page_hdr %}{{ project.Project_Name }}{% endblock page_hdr %}
+
+{% block project_release_detail %}
+
+{% if streams %}
+
+	<table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Stream</th>
+                  <th>Last Release Id</th>
+                  <th>Last Release Date</th>
+                  <th>Ongoing Release Id</th>
+                </tr>
+              </thead>
+   {% for stream in streams %}
+	
+              <tbody>
+                <tr>
+                  <td>{{ forloop.counter }}</td>
+                  <td>{{ stream.Project_Stream }}</td>
+                  <td>{{ stream.Project_Release_Label }}</td>
+                  <td>{{ stream.Project_Release_Label_Date }}</td>
+                  <td>{{ stream.Project_Release_Label_inprogress }}</td>
+                </tr>
+              </tbody>
+        </table>
+  {% endfor %}
+{% endif %}
+	
+{% endblock project_release_detail %}
