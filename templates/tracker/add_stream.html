@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+{% extends 'tracker/base.html' %}
+
+{% load staticfiles %}
+
+{% block title_block %}Add Stream{% endblock title_block %}
+
+{% block page_hdr %}Add Stream{% endblock page_hdr %}
+
+{% block release_detail %}
+
+<form method="POST" action="#">
+{% csrf_token %}
+
+
+
+{% if error_message %}
+<div class="alert alert-warning">
+    <a href="#" class="close" data-dismiss="alert">&times;</a>
+    <strong>Warning!</strong> {{ error_message }}
+</div>
+{% endif %}
+
+{{ addSForm.as_p }}
+
+<input type="submit" text="Create Stream">
+</form>
+
+{% endblock release_detail %}

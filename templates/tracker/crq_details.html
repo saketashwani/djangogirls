@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+{% extends 'tracker/base.html' %}
+
+{% load staticfiles %}
+
+{% block title_block %}Change Details{% endblock title_block %}
+
+{% block page_hdr %}{{ header }}{% endblock page_hdr %}
+
+{% block release_detail %}	
+
+{% if crq %}
+     <h2 class="sub-header">Change Details</h2>
+       <div class="table-responsive">
+	<table class="table table-striped">              
+              <tbody>	
+                <tr>
+                  <td>CRQ Id</td>
+                  <td>Stream Name</td>
+                  <td>Stage</td>
+                </tr>
+		
+                <tr>
+                  <td>{{ crq.CRQid }}</td>
+                  <td>{{ crq.Project_Stream }}</td>
+                  <td>{{ crq.Stage }}</td>
+                </tr>
+
+		<tr>
+                  <td>Architect/BA</td>
+                  <td>Architect Start Time</td>
+                  <td>Architect End Time</td>
+                </tr>
+		<tr>
+                  <td>{{ crq.Architect_BAName }}</td>
+                  <td>{{ crq.Req_DesStartDate }}</td>
+                  <td>{{ crq.Req_DesCompletionDate }}</td>
+                </tr>
+		
+                <tr>
+                  <td>FRS</td>
+                  <td>Design</td>
+                  <td></td>
+                </tr>		
+                <tr>
+                  <td>{{ crq.FRS_link }}</td>
+                  <td>Design</td>
+                  <td></td>
+                </tr>
+		
+                <tr>
+                  <td>Developer</td>
+                  <td>Development Start Date</td>
+                  <td>Development End Date</td>
+                </tr>
+		
+                <tr>
+                  <td>{{ crq.DeveloperName }}</td>
+                  <td>{{ crq.DevStartDate }}</td>
+                  <td>{{ crq.DevCompletionDate }}</td>
+                </tr>
+		
+                <tr>
+                  <td>Object Package</td>
+                  <td>Release Note</td>
+                </tr>
+		
+                <tr>
+                  <td>{{ crq.ObjectPackagelink }}</td>
+                  <td>{{ crq.ReleaseNotelink }}</td>
+                </tr>
+
+		<tr>
+                  <td>Tester</td>
+                  <td>Testing Start Date</td>
+		  <td>Testing End Date</td>
+                </tr>
+		<tr>
+                  <td>{{ crq.TesterName }}</td>
+                  <td>{{ crq.TestStartDate }}</td>
+                  <td>{{ crq.TestCompletionDate }}</td>
+                </tr>
+		
+                <tr>
+                  <td>Test Case</td>
+                  <td>Test Result</td>
+                </tr>
+		
+                <tr>
+                  <td>{{ crq.TestCaselink }}</td>
+                  <td>{{ crq.TestResultlink }}</td>
+                </tr>
+		
+                <tr>
+                  <td>Delivery Date</td>
+                  <td>{{ crq.DeliveryDate }}</td>
+                </tr>
+              </tbody>
+        </table>
+	</div>
+{% else %}
+<strong>
+Currently this project has no Change request information. You will need to add a new CR to see in list.
+</strong>
+{% endif %}
+
+<br><br>
+<div class="container-fluid">
+  <a href="#" class="btn btn-info" role="button">Add Stream</a>&nbsp&nbsp&nbsp&nbsp
+  <a href="#" class="btn btn-info" role="button">New Change Request</a>
+</div>
+<hr>
+
+{% endblock release_detail %}
+
+

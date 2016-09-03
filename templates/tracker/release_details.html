@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+{% extends 'tracker/base.html' %}
+
+{% load staticfiles %}
+
+{% block title_block %}Release Details{% endblock title_block %}
+
+{% block page_hdr %}{{ header }}{% endblock page_hdr %}
+
+{% block release_detail %}	
+
+{% if release %}
+     <h2 class="sub-header">Release Details</h2>
+       <div class="table-responsive">
+	<table class="table table-striped">              
+              <tbody>	
+                <tr>
+                  <td>Release Label</td>
+                  <td>{{ release.ReleaseId }}</td>
+                </tr>
+		
+                <tr>
+                  <td>Stream Name</td>
+                  <td>{{ release.Project_Stream }}</td>
+                </tr>
+		
+                <tr>
+                  <td>Initiation Date</td>
+                  <td>{{ release.InitiationDate }}</td>
+                </tr>
+		
+                <tr>
+                  <td>Completion Date</td>
+                  <td>{{ release.CompletionDate }}</td>
+                </tr>
+		
+                <tr>
+                  <td>FRS</td>
+                  <td>{{ release.FRS_link }}</td>
+                </tr>
+		
+                <tr>
+                  <td>SVN</td>
+                  <td>{{ release.SVN_link }}</td>
+                </tr>
+		
+                <tr>
+                  <td>Change Requests</td>
+                  <td>{{ release.Linked_CRQid }}</td>
+                </tr>
+		
+                <tr>
+                  <td>Release Initiator</td>
+                  <td>{{ release.Initiator_User }}</td>
+                </tr>
+		
+                <tr>
+                  <td>Initiation Completion Date</td>
+                  <td>{{ release.Initiator_Timeline }}</td>
+                </tr>
+		
+                <tr>
+                  <td>Release Manager</td>
+                  <td>{{ release.Manager_User }}</td>
+                </tr>
+		
+                <tr>
+                  <td>Review Completion Date</td>
+                  <td>{{ release.Manager_timeline }}</td>
+                </tr>
+		
+                <tr>
+                  <td>Release Approver</td>
+                  <td>{{ release.Approver_User }}</td>
+                </tr>
+		
+                <tr>
+                  <td>Approval Completion Date</td>
+                  <td>{{ release.Approver_timeline }}</td>
+                </tr>
+              </tbody>
+        </table>
+	</div>
+{% else %}
+<strong>
+Currently this project has no Change request information. You will need to add a new CR to see in list.
+</strong>
+{% endif %}
+
+<br><br>
+<div class="container-fluid">
+  <a href="#" class="btn btn-info" role="button">Add Stream</a>&nbsp&nbsp&nbsp&nbsp
+  <a href="#" class="btn btn-info" role="button">New Change Request</a>
+</div>
+<hr>
+
+{% endblock release_detail %}
+
+
